@@ -39,9 +39,6 @@ import {
   AlertDescription
 } from '@/components/ui/alert';
 import {
-  Switch
-} from '@/components/ui/switch';
-import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
@@ -57,8 +54,6 @@ import {
   Percent,
   DollarSign,
   TrendingUp,
-  Sun,
-  Moon,
   HelpCircle
 } from 'lucide-react';
 import {
@@ -142,7 +137,7 @@ const calculateYTM = (
 };
 
 export function BondCalculator() {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   
   // Bond Price Calculator States
   const [faceValue, setFaceValue] = useState<number>(1000);
@@ -555,8 +550,8 @@ export function BondCalculator() {
                                     stroke={theme === 'dark' ? '#9ca3af' : '#6b7280'}
                                   />
                                   <RechartsTooltip 
-                                    formatter={(value: any) => ['$' + value, 'Price']} 
-                                    labelFormatter={(label: any) => 'Coupon Rate: ' + label + '%'} 
+                                    formatter={(value: number) => ['$' + value, 'Price']} 
+                                    labelFormatter={(label: string) => 'Coupon Rate: ' + label + '%'} 
                                     contentStyle={{ backgroundColor: theme === 'dark' ? '#1f2937' : '#ffffff' }}
                                   />
                                   <Line type="monotone" dataKey="price" stroke="#3b82f6" activeDot={{ r: 8 }} strokeWidth={2} />
@@ -580,8 +575,8 @@ export function BondCalculator() {
                                     stroke={theme === 'dark' ? '#9ca3af' : '#6b7280'} 
                                   />
                                   <RechartsTooltip 
-                                    formatter={(value: any) => ['$' + value, 'Price']} 
-                                    labelFormatter={(label: any) => 'Market Rate: ' + label + '%'} 
+                                    formatter={(value: number) => ['$' + value, 'Price']} 
+                                    labelFormatter={(label: string) => 'Market Rate: ' + label + '%'} 
                                     contentStyle={{ backgroundColor: theme === 'dark' ? '#1f2937' : '#ffffff' }}
                                   />
                                   <Line type="monotone" dataKey="price" stroke="#8b5cf6" activeDot={{ r: 8 }} strokeWidth={2} />
